@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task9-Billing</title>
+  	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="styles heet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+	<style>
+		.bor{border: 3px solid black;
+				border-radius: 30px;
+				background-color: #11116666;
+			}
+			.head {
+					text-align: center;
+  					color: #1aff1a;
+  					text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	  			  }
+	  		.image{
+	  			background-image: url(img/super.jpg);
+	  			background-repeat: no-repeat;
+	  			background-size: 100% 100%;
+	  			background-size: cover;
+	  		}
+		/*.back{
+				background-color: #9c27border-color			bord;er: 2px solid black;
+				border-radius: 30px;
+			}*/
+	</style>
+<body>
+	<div class="container-fluied image"><br><br>
+	<div class="container  bor mt-3 mb-3 w-100">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 text-center">
+				<img src="img/hotel.png" alt="img" width="200px" height="200px">
+			</div>
+		</div>
+		<div class="row mt-3 mb-3 text-center">
+			<div class="col-lg-1 col-md-1"></div>
+			<div class="col-lg-10 col-md-10  text-white">
+				<h1 class="head">INDEX</h1>
+				<hr >
+			</div>
+			<div class="col-lg-1 col-md-1"></div>
+			<!-- <div class="col-md-12 col-md-12">
+				<p id="date"></p>
+			</div> -->
+		</div>
+		<div class="row mb-5">
+			<!-- <div class="col-lg-12 col-md-12 text-center">
+			<table class="table" style="border: none;">
+				<tbody>
+					<td></td>
+					<td><input type="button" value="HOME" class="btn btn-danger "></td>	
+					<td></td>
+					<td><input style="width: 70px;" type="button" value="LIST" class="btn btn-danger "></td>	
+					<td></td>
+				</tbody>
+			</table> -->
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-2 col-md-2 text-center mb-3">
+				 <input type="button" value="BILLING" class="btn btn-success" onclick="bill()">
+			</div>
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-2 col-md-2 text-center mb-3">
+			 <input style="width: 80px;" type="button" value="LIST" class="btn btn-success" onclick="listDetail()">
+			</div>
+			 <div class="col-lg-2 col-md-2"></div>
+		</div>
+		<div class="row text-center mb-5">
+		<table class="table">
+			<tbody>
+				<tr>
+					<form id="refresh">
+					<td><input type="text" placeholder="Food Name" class="form-control" id="foodname"></td>
+					<td><input type="number" placeholder="Price" class="form-control" id="Price"></td>
+					<td><input type="button" style="width: 80px;"value="ADD" class="btn btn-success" onclick="addItem()"></td>
+				</form>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<!-- <div class="row mb-5">
+			<div class="col-lg-12 col-md-12 text-center">
+				<table class="table table-striped">
+					<thead>
+						<th>Food Item Name</th>
+						<th>Price</th>
+					</thead>
+					<tbody id="tabbody">	
+					</tbody>
+				</table>
+			</div>
+		</div> -->
+		<div class="row mb-5">
+			<div class="col-lg-4 col-md-4">
+				<div id="demo" class="carousel slide" data-ride="carousel">
+					<ul class="carousel-indicators">
+						<li data-target="#demo" data-slide-to="0" class="active"></li>
+					    <li data-target="#demo" data-slide-to="1"></li>
+					    <li data-target="#demo" data-slide-to="2"></li>
+					</ul>
+				  	<div class="carousel-inner">
+				    	<div class="carousel-item active">
+				      		<img src="img/downloa.jpg" alt="Los Angeles" width="400px" height="300px">
+				    	</div>
+				    	<div class="carousel-item">
+				      		<img src="img/downloa.jpg" alt="Chicago" width="400px" height="300px">
+				   	 	</div>
+				    	<div class="carousel-item">
+				      		<img src="img/images.jpg" alt="New York" width="400px" height="300px">
+				    	</div>
+				  	</div>
+				  	<a class="carousel-control-prev" href="#demo" data-slide="prev">
+				    	<span class="carousel-control-prev-icon"></span>
+				  	</a>
+				  	<a class="carousel-control-next" href="#demo" data-slide="next">
+				    	<span class="carousel-control-next-icon"></span>
+				  	</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4">
+			<div id="demo" class="carousel slide" data-ride="carousel">
+			  	<ul class="carousel-indicators">
+			   		<li data-target="#demo" data-slide-to="0" class="active"></li>
+			   	 	<li data-target="#demo" data-slide-to="1"></li>
+			    	<li data-target="#demo" data-slide-to="2"></li>
+			  	</ul>
+			  	<div class="carousel-inner">
+				    <div class="carousel-item active">
+				      	<img src="img/images1.jpg" alt="Los Angeles" width="400px" height="300px">
+				    </div>
+				    <div class="carousel-item">
+				      	<img src="img/download1.jpg" alt="Chicago" width="400px" height="300px">
+				    </div>
+				    <div class="carousel-item">
+				      	<img src="img/images2.jpg" alt="New York" width="400px" height="300px">
+				    </div>
+  				</div>
+				 <a class="carousel-control-prev" href="#demo" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#demo" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+			</div>
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<div id="demo" class="carousel slide" data-ride="carousel">
+			  	<ul class="carousel-indicators">
+				    <li data-target="#demo" data-slide-to="0" class="active"></li>
+				    <li data-target="#demo" data-slide-to="1"></li>
+				    <li data-target="#demo" data-slide-to="2"></li>
+			  	</ul>
+				<div class="carousel-inner">
+				    <div class="carousel-item active">
+				      	<img src="img/images4.jpg" alt="Los Angeles" width="400px" height="300px">
+				    </div>
+				    <div class="carousel-item">
+				      <img src="img/download2.jpg" alt="Chicago" width="400px" height="300px">
+				    </div>
+				    <div class="carousel-item">
+				      <img src="img/images3.jpg" alt="New York" width="400px" height="300px">
+				    </div>
+				</div>
+				<a class="carousel-control-prev" href="#demo" data-slide="prev">
+				    <span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#demo" data-slide="next">
+				    <span class="carousel-control-next-icon"></span>
+				</a>
+				</div>
+			</div>
+		</div>
+	</div><br><br>
+	</div>
+</body>
+<script>
+	
+	// var d = new Date();
+	// document.getElementById('date').innerHTML = d;
+
+	function bill() {
+		location.replace("billing.html")
+	}
+	function listDetail() {
+		location.replace("list.html")
+	}
+
+	var item=[];
+	function addItem(){
+
+		var fooditem1 = JSON.parse(localStorage.getItem('items'));
+
+		if (!fooditem1) {
+		var food = document.getElementById('foodname').value;
+		var price = document.getElementById('Price').value;
+		var data={
+			Food:food,
+			Price:price
+		}
+		console.log(data);
+		item.push(data);
+		localStorage.setItem('items',JSON.stringify(item));
+		if (food==""||price=="") {
+			alert("Enter the Item")
+		}
+		else{
+			alert("Add SuccessFully")
+			location.replace(index.html)
+		}
+		
+		}
+	
+	else{
+		for(let i=0; i<fooditem1.length;i++){
+			item.push(fooditem1[i])
+		}
+	var food = document.getElementById('foodname').value;
+		var price = document.getElementById('Price').value;
+		var data={
+			Food:food,
+			Price:price
+		}
+		console.log(data);
+		item.push(data);
+		localStorage.setItem('items',JSON.stringify(item));
+		if (food==""||price=="") {
+			alert("Enter the Item")
+		}
+		else
+			alert("Add SuccessFully")
+		}
+		document.getElementById("refresh").reset();
+
+	
+	}
+
+
+
+</script>
+</html>

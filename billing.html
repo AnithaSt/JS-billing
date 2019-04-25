@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task9-Billing</title>
+  	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="styles heet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+	<style>
+		.bor{border: 3px solid black;
+				border-radius: 30px;
+				background-color: #11116666;
+			}
+		.head {
+					text-align: center;
+  					color: #1aff1a;
+  					text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	  			  }
+	  	.image{
+	  			background-image: url(img/super.jpg);
+	  			background-repeat: no-repeat;
+	  			
+	  			background-size: cover;
+	  		}
+		/*.back{
+				background-color: #9c27b0;
+				border: 2px solid black;
+				border-radius: 30px;
+			}*/
+	</style>
+<body>
+	<div class="container-fluied image"><br><br>
+	<div class="container  bor mt-3 mb-3">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 text-center">
+				<img src="img/hotel.png" alt="img" width="200px" height="200px">
+			</div>
+		</div>
+		<div class="row mt-3 mb-3 text-center">
+			<div class="col-lg-1 col-md-1"></div>
+			<div class="col-lg-10 col-md-10 back text-white">
+				<h2 class="head">BILLING</h2>
+				<hr>
+			</div>
+			<div class="col-lg-1 col-md-1"></div>
+			<!-- <div class="col-md-12 col-md-12">
+				<p id="date"></p>
+			</div> -->
+		</div>
+		<div class="row mb-5">
+			<!-- <div class="col-lg-12 col-md-12 text-center">
+			<table class="table" style="border: none;">
+				<tbody>
+					<td></td>
+					<td><input type="button" value="HOME" class="btn btn-danger "></td>	
+					<td></td>
+					<td><input style="width: 70px;" type="button" value="LIST" class="btn btn-danger "></td>	
+					<td></td>
+				</tbody>
+			</table> -->
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-2 col-md-2 text-center mb-3">
+				 <input style="width: 80px;" type="button" value="LIST" class="btn btn-success" onclick="detail()">
+			</div>
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-2 col-md-2 text-center mb-3">
+			 <input style="width: 80px;" type="button" value="ADMIN" class="btn btn-success" onclick="listDetail()">
+			</div>
+			 <div class="col-lg-2 col-md-2"></div>
+		</div>
+		<hr>
+		<form id="refresh">
+		<div class="row mb-5">
+			<div class="col-lg-4 col-md-4 text-center mb-3">
+				<select class="form-control" width="40%" id="foodname">
+					<option>select item</option>
+				</select>
+			</div>	
+			<div class="col-lg-4 col-md-4 text-center mb-3">					
+				<input type="number" placeholder="Enter the Quantity" class="form-control"	id="quantity">
+			</div>
+			<div class="col-lg-4 col-md-4 text-center">						
+				<input type="button" style="width: 100px;"value="ADD" class="btn btn-success" onclick="addFun()">					
+			</div>
+		</div>
+	</form>
+		<hr>
+		<div class="row mb-5">
+			<div class="col-lg-12 col-md-12 text-center text-white">
+				<table class="table table-striped bg-secondary">
+					<thead>
+						<th>P.Name</th>
+						<th>P.Price</th>
+						<th>P.Qty</th>
+						<th>Total</th>
+					</thead>
+					<tbody id="body1">
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 col-md-1"></div>
+			<div class="col-lg-10 col-md-10">
+				<h4 class="text-right text-warning "><span class="bg-secondary">TOTAL:RS  &nbsp<span id="totalrs" style="font-size: 30px;"></span></span></h4>
+			</div>
+		</div>
+	</div>
+	<br><br>
+	</div>
+</body>
+<script>
+	// var d = new Date();
+	// document.getElementById('date').innerHTML = d;
+	function detail() {
+		location.replace("list.html")
+	}
+	function listDetail() { 
+		location.replace("index.html")
+	}
+	var data = JSON.parse(localStorage.getItem('items'));
+		console.log(data)
+
+		for(let i=0; i<data.length; i++){
+			document.getElementById('foodname').innerHTML += "<option>"+data[i].Food+ "</option>"
+	 }
+	
+	 var totalAmount=[];
+
+	 function addFun(){ 
+	 	var bill =[]; 
+		var price;
+		var x;
+		var total;
+	 	var select = document.getElementById('foodname').value;
+	 	var quantity =document.getElementById('quantity').value;
+	 	var data = JSON.parse(localStorage.getItem('items'));
+	 	for(let i=0; i<data.length; i++){
+	 		if (data[i].Food==select) {
+	 			x=data[i].Price;
+	 		}
+	 	}total=x;
+	 	price=x*quantity ;
+	 	 var data1={
+	 	 	food :select,
+	 	 	Qty:quantity ,
+	 	 	Price:total,
+	 	 	amount:price
+	 	 }
+	 	 console.log(data1)
+	 	 bill.push(data1);
+	 	 if (select==''||quantity=='') {
+	 	 	alert("fill the item")
+	 	 }
+	 	 else{
+	 	 	for(let i=0;i<bill.length;i++){
+	 	 	var name = document.getElementById('body1').innerHTML += "<td>"+bill[i].food+"</td>"+"<td>"+bill[i].Qty+"</td>"+"<td>"+bill[i].Price+"</td>"+"<td>"+bill[i].amount+"</td>";
+
+	 	 		totalAmount.push(bill[i].amount);
+	 	 		console.log(totalAmount)
+	 	 	}
+	 	 }
+	 	 var total1=0;
+	 	 for(let i=0; i< totalAmount.length;i++){
+	 	 	 total1 =eval(total1+totalAmount[i]);
+	 	 	 console.log(total1)
+	 	 	 document.getElementById('totalrs').innerHTML=total1;
+	 	 }
+	 	 document.getElementById("refresh").reset();
+	 }
+	 
+</script>
+</html>

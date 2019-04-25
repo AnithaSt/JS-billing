@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task9-Billing</title>
+  	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="styles heet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+	<style>
+		.bor{border: 3px solid black;
+				border-radius: 30px;
+				background-color: #11116666;
+			}
+		.head {
+					text-align: center;
+  					color: #1aff1a;
+  					text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	  			  }	
+	  	.image{
+	  			background-image: url(img/super.jpg);
+	  			background-repeat: no-repeat;
+	  			
+	  			background-size: cover;
+	  		}		  
+		/*.back{
+				background-color: #9c27b0;
+				border: 2px solid black;
+				border-radius: 30px;
+			}*/
+	</style>
+<body>
+	<div class="container-fluied image"><br><br>
+	<div class="container  bor mt-3 mb-3">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 text-center">
+				<img src="img/hotel.png" alt="img" width="200px" height="200px">
+			</div>
+		</div>
+		<div class="row mt-3 mb-3 text-center">
+			<div class="col-lg-1 col-md-1"></div>
+			<div class="col-lg-10 col-md-10  text-white">
+				<h1 class="head">LIST</h1>
+				<hr >
+			</div>
+			<div class="col-lg-1 col-md-1"></div>
+			<!-- <div class="col-md-12 col-md-12">
+				<p id="date"></p>
+			</div> -->
+		</div>
+		<div class="row mb-5">
+			<!-- <div class="col-lg-12 col-md-12 text-center">
+			<table class="table" style="border: none;">
+				<tbody>
+					<td></td>
+					<td><input type="button" value="HOME" class="btn btn-danger "></td>	
+					<td></td>
+					<td><input style="width: 70px;" type="button" value="LIST" class="btn btn-danger "></td>	
+					<td></td>
+				</tbody>
+			</table> -->
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-2 col-md-2 text-center mb-3">
+				 <input type="button" value="BILLING" class="btn btn-success" onclick="bill()">
+			</div>
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-lg-2 col-md-2 text-center mb-3">
+			 <input style="width: 80px;" type="button" value="ADMIN" class="btn btn-success" onclick="listDetail()">
+			</div>
+			 <div class="col-lg-2 col-md-2"></div>
+		</div>
+		<div class="row mb-5">
+			<div class="col-lg-12 col-md-12 text-center text-white">
+				<table class="table table-striped bg-secondary" >
+					<thead >
+						<th >Food Item Name</th>
+						<th>Price</th>
+					</thead>
+					<tbody id="body">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<br><br>
+	</div>
+
+</body>
+<script>
+	// var d = new Date();
+	// document.getElementById('date').innerHTML = d;
+
+	function bill() {
+		location.replace("billing.html")
+	}
+	function listDetail() { 
+		location.replace("index.html")
+	}
+	var data = JSON.parse(localStorage.getItem('items'));
+		console.log(data)
+		for(let i=0; i<data.length; i++){
+		document.getElementById('body').innerHTML += "<td>"+data[i].Food+ "</td>"+"<td>"+data[i].Price+"</td>";
+	 }
+</script>
+</html>
